@@ -1,0 +1,10 @@
+--- gettext-0.20.1/gettext-tools/misc/cvsuser.c	2019-04-04 11:22:20.000000000 +1300
++++ cvsuser.c	2019-12-26 13:35:46.237522305 +1300
+@@ -49,7 +49,6 @@
+   pw.pw_passwd = "*";
+   pw.pw_uid = 100;
+   pw.pw_gid = 100;
+-  pw.pw_gecos = "";
+   pw.pw_dir = "/";
+   pw.pw_shell = "/bin/sh";
+ 

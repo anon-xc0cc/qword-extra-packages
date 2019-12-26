@@ -1,0 +1,30 @@
+PKG_NAME=autoconf
+PKG_VERSION=2.69
+PKG_URL=https://ftp.gnu.org/gnu/autoconf/autoconf-$PKG_VERSION.tar.gz
+PKG_TARBALL=$PKG_NAME-$PKG_VERSION.tar.gz
+PKG_ARCHIVE_DIR=$PKG_NAME-$PKG_VERSION
+PKG_PREFIX=/usr
+PKG_DEPS="mlibc m4"
+
+pkg_fetch() {
+    [ -f $PKG_TARBALL ] || wget $PKG_URL
+    [ -d $PKG_ARCHIVE_DIR ] || tar -xf $PKG_TARBALL
+
+    patch -p1 $PKG_ARCHIVE_DIR/build-aux/config.sub < $PKG_NAME-$PKG_VERSION.patch
+}
+
+pkg_build() {
+    cd $PKG_ARCHIVE_DIR
+    ./configure --host=x86_64-qword --prefix=$PKG_PREFIX
+    make -j9
+}
+
+pkg_install() {
+    cd $PKG_ARCHIVE_DIR
+    make DESTDIR=$QWORD_ROOT install -j9
+}
+
+pkg_clean() {
+    rm -rf $PKG_ARCHIVE_DIR
+    rm $PKG_TARBALL
+}

@@ -1,0 +1,25 @@
+--- gettext-0.20.1/gettext-tools/src/msginit.c	2019-05-12 09:11:31.000000000 +1200
++++ msginit.c	2019-12-26 13:35:55.361915552 +1300
+@@ -1142,21 +1142,7 @@
+   pwd = get_user_pwd ();
+   if (pwd != NULL)
+     {
+-      const char *fullname;
+-      const char *fullname_end;
+-      char *result;
+-
+-      /* Return the pw_gecos field, up to the first comma (if any).  */
+-      fullname = pwd->pw_gecos;
+-      fullname_end = strchr (fullname, ',');
+-      if (fullname_end == NULL)
+-        fullname_end = fullname + strlen (fullname);
+-
+-      result = XNMALLOC (fullname_end - fullname + 1, char);
+-      memcpy (result, fullname, fullname_end - fullname);
+-      result[fullname_end - fullname] = '\0';
+-
+-      return result;
++      return pwd->pw_name;
+     }
+ #endif
+ 

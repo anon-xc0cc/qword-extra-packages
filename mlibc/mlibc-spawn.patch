@@ -1,0 +1,18 @@
+--- mlibc/options/posix/meson.build	2019-12-26 12:14:58.320572736 +1300
++++ meson.build	2019-12-26 12:15:43.810540745 +1300
+@@ -22,7 +22,6 @@
+ 	'generic/pwd-stubs.cpp',
+ 	'generic/regex.cpp',
+ 	'generic/sched-stubs.cpp',
+-	'generic/spawn-stubs.cpp',
+ 	'generic/strings-stubs.cpp',
+ 	'generic/sys-file-stubs.cpp',
+ 	'generic/syslog-stubs.cpp',
+@@ -63,7 +62,6 @@
+ 		'include/pwd.h',
+ 		'include/regex.h',
+ 		'include/sched.h',
+-		'include/spawn.h',
+ 		'include/strings.h',
+ 		'include/syslog.h',
+ 		'include/termios.h',

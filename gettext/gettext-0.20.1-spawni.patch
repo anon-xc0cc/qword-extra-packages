@@ -1,0 +1,13 @@
+--- gettext-0.20.1/gettext-tools/gnulib-lib/spawni.c	2017-01-01 02:54:42.000000000 +1300
++++ spawni.c	2019-12-26 12:36:44.772361573 +1300
+@@ -60,6 +60,10 @@
+ # define local_setegid(id) setegid (id)
+ #endif
+ 
++#ifndef _CS_PATH
++#define _CS_PATH 3
++#endif
++
+ #if _LIBC
+ # define alloca __alloca
+ # define execve __execve

@@ -1,0 +1,26 @@
+PKG_NAME=libexpat
+PKG_VERSION=2.2.9
+PKG_URL=https://github.com/libexpat/libexpat
+PKG_ARCHIVE_DIR=$PKG_NAME
+PKG_DEPS="mlibc"
+
+pkg_fetch() {
+    git clone $PKG_URL || true
+}
+
+pkg_build() {
+    cd $PKG_ARCHIVE_DIR/expat
+    ./buildconf.sh
+    patch -p1 conftools/config.sub < ../../$PKG_NAME.patch
+    ./configure --host=x86_64-qword --prefix=$QWORD_ROOT
+    make -j9
+}
+
+pkg_install() {
+    cd $PKG_ARCHIVE_DIR/expat
+    make DESTDIR=$QWORD_ROOT install -j9
+}
+
+pkg_clean() {
+    rm -rf $PKG_ARCHIVE_DIR
+}

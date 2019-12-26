@@ -1,0 +1,17 @@
+--- gettext-0.20.1/gettext-tools/src/plural-eval.h	2019-12-26 13:06:00.056075738 +1300
++++ plural-eval.h	2019-12-26 13:06:35.761600372 +1300
+@@ -28,9 +28,12 @@
+ 
+ #include <setjmp.h>
+ 
++#ifndef __QWORD__
++#define __QWORD__
++#endif
++
+ /* Some platforms don't have the sigjmp_buf type in <setjmp.h>.  */
+-#if defined _MSC_VER || defined __MINGW32__
+-/* Native Woe32 API.  */
++#if defined __QWORD__
+ # define sigjmp_buf jmp_buf
+ # define sigsetjmp(env,savesigs) setjmp (env)
+ # define siglongjmp longjmp

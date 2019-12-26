@@ -1,0 +1,29 @@
+--- gettext-0.20.1/libtextstyle/examples/color-hello/hello.c	2019-05-07 11:26:49.000000000 +1200
++++ hello.c	2019-12-26 13:35:52.297783497 +1300
+@@ -84,25 +84,7 @@
+       struct passwd *pwd = getpwnam (name);
+       if (pwd != NULL)
+         {
+-          const char *gecos = pwd->pw_gecos;
+-          if (gecos != NULL)
+-            {
+-              /* Use the part before the first comma.
+-                 See <https://en.wikipedia.org/wiki/Gecos_field>.  */
+-              const char *comma = strchr (gecos, ',');
+-              if (comma != NULL)
+-                {
+-                  char *part = (char *) malloc (comma - gecos + 1);
+-                  if (part != NULL)
+-                    {
+-                      memcpy (part, gecos, comma - gecos);
+-                      part[comma - gecos] = '\0';
+-                      return part;
+-                    }
+-                }
+-              else
+-                return gecos;
+-            }
++          return pwd->pw_name;
+         }
+     }
+   return NULL;

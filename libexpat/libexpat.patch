@@ -1,0 +1,11 @@
+--- libexpat/expat/conftools/config.sub	2019-12-26 14:08:51.456174218 +1300
++++ config.sub	2019-12-26 14:09:51.982801180 +1300
+@@ -1390,7 +1390,7 @@
+ 	      | -powermax* | -dnix* | -nx6 | -nx7 | -sei* | -dragonfly* \
+ 	      | -skyos* | -haiku* | -rdos* | -toppers* | -drops* | -es* \
+ 	      | -onefs* | -tirtos* | -phoenix* | -fuchsia* | -redox* | -bme* \
+-	      | -midnightbsd*)
++	      | -midnightbsd* | -qword* )
+ 	# Remember, each alternative MUST END IN *, to match a version number.
+ 		;;
+ 	-qnx*)
